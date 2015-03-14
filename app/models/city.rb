@@ -5,6 +5,6 @@ class City < ActiveRecord::Base
     numericality: { greater_than_or_equal_to: 0 }
   validates :elevation, allow_blank: true, 
     numericality: { greater_than_or_equal_to: 3315,
-      if: lambda { |city| city.state = 'CO'},
+      if: lambda { |city| city.state == 'CO' || city.state == 'Colorado'},
       message: 'is too low. Lowest point in CO is 3315 feet.' }
 end

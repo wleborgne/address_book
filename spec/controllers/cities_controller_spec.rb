@@ -25,14 +25,14 @@ RSpec.describe CitiesController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) {
     # skip("Add a hash of attributes valid for your model")
-    { 'name' => 'Denver', 'population' => 649495,
-      'elevation' => 5280, 'state' => 'Colorado' }
+    { name: 'Denver', population: 649495,
+      elevation: 5280, state: 'Colorado' }
   }
 
   let(:invalid_attributes) {
     # skip("Add a hash of attributes invalid for your model")
-    { 'name' => 'Badville', 'population' => -9000,
-      'elevation' => -500, 'state' => 'Confusion'}
+    { name: 'Badville', population: -9000,
+      elevation: -500, state: 'Confusion'}
   }
 
   # This should return the minimal set of values that should be in the session
@@ -108,8 +108,8 @@ RSpec.describe CitiesController, type: :controller do
     context "with valid params" do
       let(:new_attributes) {
         # skip("Add a hash of attributes valid for your model")
-        { 'name' => 'Denver', 'population' => 13030,
-          'elevation' => 902, 'state' => 'North Carolina' }
+        { name: 'Denver', population: 13030,
+          elevation: 902, state: 'North Carolina' }
       }
 
       it "updates the requested city" do
@@ -117,7 +117,7 @@ RSpec.describe CitiesController, type: :controller do
         put :update, {:id => city.to_param, :city => new_attributes}, valid_session
         city.reload
         # skip("Add assertions for updated state")
-        expect(city.state).to eq(new_attributes['state'])
+        expect(city.state).to eq(new_attributes[:state])
       end
 
       it "assigns the requested city as @city" do
